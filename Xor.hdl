@@ -1,0 +1,13 @@
+/**
+ * Exclusive-or gate:
+ * out = not (a == b)
+ */
+
+ CHIP Xor {
+    IN a, b;
+    OUT out;
+
+    PARTS:
+    // Use an XOR gate to compute the output
+    XorGate(a=a, b=b, out=out);
+}

@@ -1,0 +1,13 @@
+/**
+ * Not gate:
+ * out = not in
+ */
+
+ CHIP Not {
+    IN in;
+    OUT out;
+
+    PARTS:
+    // Use a basic Not gate to invert the input signal
+    NotGate(in=in, out=out);
+}

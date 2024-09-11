@@ -1,0 +1,14 @@
+CHIP DMux4Way {
+    IN in, sel[2];
+    OUT a, b, c, d;
+
+    PARTS:
+    // Decode the 2-bit selection input
+    DMux(in=in, sel=sel[0], a=sel0, b=sel1);
+    
+    // Decode the first selection bit (sel[0]) to determine a and b
+    DMux(in=sel0, sel=sel[1], a=a, b=b);
+    
+    // Decode the second selection bit (sel[0]) to determine c and d
+    DMux(in=sel1, sel=sel[1], a=c, b=d);
+}

@@ -1,0 +1,17 @@
+CHIP Mux {
+    IN a, b, sel;
+    OUT out;
+
+    PARTS:
+    // Create an inverted selection signal
+    Not(in=sel, out=notSel);
+    
+    // Use the inverted selection signal to select `a`
+    And(a=a, b=notSel, out=a_out);
+    
+    // Use the selection signal to select `b`
+    And(a=b, b=sel, out=b_out);
+    
+    // Combine the results from the above two AND gates
+    Or(a=a_out, b=b_out, out=out);
+}
